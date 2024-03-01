@@ -1,0 +1,62 @@
+{% extends 'management/admindesign.html' %}
+{% block adminblock %}
+{% load static %}
+
+<style>
+     .viewrequest{
+    position: absolute;
+    top:10px;
+    margin-left:50px;
+    padding:26px;
+    width:900px;
+    height: 400px;
+    overflow:auto;
+}
+
+.viewrequest table{
+    width:60em;
+    text-align:center;
+    //border-collapse:collapse;
+    border-spacing:1px;
+    background:white;
+}
+
+.viewrequest table tr th{
+    color:white;
+}
+.viewrequest table tr th{
+background:rgb(1, 176, 135);
+padding:10px;
+}
+.viewrequest table tr td{
+background:rgb(109,163,148,0.5);
+padding:10px;
+}
+.viewrequest table tr:hover td{
+background:rgba(237, 236, 234);
+}
+</style>
+<div class="viewrequest">
+<table align="right">
+    <tr>
+        <th>DEPARTURE</th>
+        <th>FLIGHT</th>
+        <th>AIRLINE</th>
+        <th>PLANETYPE</th>
+
+    </tr>
+    {% for d in objects %}
+    <tr style="color:red">
+        <td>{{d.departure}}</td>
+        <td>{{d.flight}}</td>
+        <td>{{d.airline}}</td>
+        <td>{{d.planetype}}</td>
+
+
+
+    </tr>
+    {% endfor %}
+</table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends 'management/admindesign.html' %}
+{% block adminblock %}
+{% load static %}
+<style>
+
+
+    .upload{
+    position: absolute;
+    top:10px;
+    margin-left:50px;
+    padding:26px;
+    width:900px;
+    height: 400px;
+    overflow:auto;
+}
+
+.upload table{
+    width:60em;
+    text-align:center;
+    //border-collapse:collapse;
+    border-spacing:1px;
+    background:white;
+}
+
+.upload table tr th{
+    color:white;
+}
+.upload table tr th{
+background:rgb(1, 176, 135);
+padding:10px;
+}
+.upload table tr td{
+background:rgb(109,163,148,0.5);
+padding:10px;
+}
+.upload table tr:hover td{
+background:rgba(237, 236, 234);
+}
+
+</style>
+<body>
+<div class="upload">
+<form method="post" enctype="multipart/form-data">
+
+    {%csrf_token%}
+    <table align="right" style="color:red">
+        <tr>
+            <td style="color:red" > DEPARTURE</td>
+             <td><input type="text" name="departure"></td>
+        </tr>
+
+        <tr><td style="color:red">FLIGHT</td>
+            <td><input type="text" name="flight"></td>
+        </tr>
+        <tr><td style="color:red">AIRLINE</td>
+            <td><input type="text" name="airline"></td>
+        </tr>
+        <tr> <td style="color:red">PLANE TYPE</td>
+            <td><select name="planetype">
+                                    <option disabled="disabled" selected="selected">planetype</option>
+                                    <option>AC</option>
+                                    <option>NON AC</option>
+
+                                </select></td></tr>
+
+
+
+
+   <tr>
+            <td style="text-align:center;" colspan="2"><input type="submit" name="submit" value="submit"></td>
+        </tr>
+ </table>
+
+</form>
+    </div>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'passenger/design.html' %}
+{% block userblock %}
+{% load static %}
+<style>
+
+
+
+
+
+    .viewdetails{
+    position: absolute;
+    top:-50px;
+    margin-left:50px;
+    padding:26px;
+    width:970px;
+    height: 400px;
+    overflow:auto;
+}
+
+.viewdetails table{
+    width:40em;
+    text-align:center;
+    //border-collapse:collapse;
+    border-spacing:1px;
+    background:white;
+}
+
+.viewdetails table tr th{
+    color:white;
+}
+.viewdetails table tr th{
+background:rgb(1, 176, 135);
+padding:10px;
+}
+.viewdetails table tr td{
+background:rgb(109,163,148,0.5);
+padding:10px;
+}
+.viewdetails table tr:hover td{
+background:rgba(237, 236, 234);
+}
+
+    </style>
+<div class="viewdetails" >x
+<table style="font-size:100%; color:red" align="right">
+    <tr>
+<th>DEPARTURE NAME</th>
+<th>FLIGHT</th>
+<th>AIRLINE NAME</th>
+<th>PLANE TYPE</th>
+<th>FEED BACK</th>
+
+    </tr>
+{% for v in objects %}
+    <tr >
+        <td style="text-align:center">{{v.departure}}</td>
+        <td>{{v.flight}}</td>
+        <td>{{v.airline}}</td>
+        <td>{{v.planetype}}</td>
+        <td><a href="{% url 'feedback' v.id %}">FEEDBACK NOW</a></td>
+
+    </tr>
+
+
+
+{% endfor %}
+</table> </div>
+{% endblock %}
